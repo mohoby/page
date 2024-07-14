@@ -1,4 +1,4 @@
- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8"/>
@@ -7,7 +7,7 @@
 <META NAME="DESCRIPTION" content="Share hobbies, common interests, log activities,text to singles anywhere, meet new friends, texting anytime, socializing, mobile dating, mobile chat, mobile socializing, Online free dating, socializing, chat, text messaging, romance, personal ads, love, friendship" />
 <META NAME="KEYWORDS" content="free dating, free dating sites,free dating service, free online dating, socializing, text singles, mobile chat meetings text singles, text sexy singles, text hot singles, text local singles, singles text dating, singles social events, singles social groups, singles socials, singles social networks, relationships, personal ads, singles, woman,man,love,romance for male and female, adult, chat, text messaging, video, friends networking, sharing photos, finding friends, wiki, blog, groups, events, social networking" />
 <META NAME="TYPE" CONTENT="mosouls.com" />
-<META NAME="COPYRIGHT" CONTENT="Copyright <%=cal.get(java.util.Calendar.YEAR)%> mosouls.com" />
+<META NAME="COPYRIGHT" CONTENT="Copyright © Mohoby.com" />
 <META NAME="ROBOTS" CONTENT="index,follow" />
 <META NAME="REVISIT-AFTER" CONTENT="7 days" />
 <META NAME="RATING" CONTENT="General" />
@@ -167,9 +167,6 @@ p.about {
 <script language="javascript">
 <!--
 
-<%if (request.getParameter("standard")==null){%>
-	//mobile_device_detect();
-<%}%>
 function launchpopupscroll(url, name, width, height,scroll) {
 winSet = "toolbar=no,location=no,directories=no,menubar=no,scrollbars="+scroll+",resizable=no,status=yes";
 winSet += ",width="+width +",height="+height+",left="+(screen.availWidth-width)/2+",top="+(screen.availHeight-height)/2;
@@ -204,12 +201,6 @@ function cursorhand(imgId) {
 
 <body topmargin="0">
 <table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
-
-<%int mon=cal.get(java.util.Calendar.MONTH)+1;%>
-<%int day=cal.get(java.util.Calendar.DAY_OF_MONTH);%>
-<%String bg_01="/image/bg_01.jpg";%>
-<%if ((mon==11 && day>=15) || mon==12 || mon==1 || (mon==2 && day<=15)) bg_01="/image/bg_02.jpg";%>
-<%if (mon==6 || mon==7 || mon==8)  bg_01="/image/bg_03.png";%>
   <tr>
     <td background="<%=bg_01%>" height="100">
 	<table width="1000" height="100" border="0" cellpadding="0" cellspacing="0">
@@ -254,7 +245,6 @@ function cursorhand(imgId) {
   </tr>
 </table>
 
-<%String bg="/image/login-bg_02"+((mon<6 || mon>8)?".gif":".jpg");%>
 <table width="1000" border="0" cellpadding="0" cellspacing="0" align="center" style="background:url(<%=bg%>) repeat-x;height:250px;">
   <tr>
     <td>
@@ -283,7 +273,7 @@ function cursorhand(imgId) {
   <tr class="jiacu" >
     <td align="center">Gifts </td>
     <td align="center">Social</td>
-    <td align="center">Texting</td>
+    <td align="center">Games</td>
   </tr>
 </table>
 
@@ -298,7 +288,7 @@ function cursorhand(imgId) {
   <tr>
     <td><img src="/image/group-head.jpg" /></td>
   </tr>
-  <%String userid=request.getParameter("userid");%>
+ 
   <tr>
     <td background="/image/group-m.jpg">
 	<form name="login" action="/j_security_check" method="post">

@@ -207,14 +207,14 @@ function cursorhand(imgId) {
 
   <tr>
     <td>&nbsp;</td>
-    <td rowspan="2" style="padding-top:35px"><!--img src="/image/txt p.png" width="254" height="40"/--><span style="color:red;font-size:31pt;font-weight:bold;font-family:Comic Sans MS, Arial;">MoHobbies</span>
+    <td rowspan="2" style="padding-top:35px"><img src="/image/txt p.png" width="254" height="40"/><span style="color:red;font-size:31pt;font-weight:bold;font-family:Comic Sans MS, Arial;">Mohoby</span>
     </td>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <td height="20">&nbsp;</td>
     <td width="636" class="jiacu" align="center" valign="top" style="padding-bottom:28px;font-size:15px;color:yellow;">
-  <div style="background-color:#bbeeee;font-weight:bold;font-size:11.5pt;float:right">&nbsp;<a href="/register.do"><u>SIGN UP</u> </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  <div style="background-color:#bbeeee;font-weight:bold;font-size:11.5pt;float:right">&nbsp;<a href="/register.do"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
   </td></tr>
   <tr>
     <td>&nbsp;</td>
@@ -295,7 +295,7 @@ function cursorhand(imgId) {
 	<table class="jiacu">
 	<tr><td  width="250">
 	<div style="padding:2px 10px 0 30px;float:left">Email</div>
-	<div style="float:left"><input name="j_username" type="text" value="<%=((userid!=null)?userid:"")%>" style="width:135px;margin-top:3px;font-family:Arial;font-size:8pt" size="9" /></div>
+	<div style="float:left"><input name="j_username" type="text" value="" style="width:135px;margin-top:3px;font-family:Arial;font-size:8pt" size="9" /></div>
 	</td></tr>
 	
 	<tr><td  width="250">
@@ -385,10 +385,7 @@ and share with newbies.
     <td width="49" height="35" style="padding-top:5px">&nbsp;</td>
     <td width="556" class="jiacu zi14" align="left" valign="bottom">Meet and connect players with similar hobbies</td>
   </tr>
-  <%java.util.Random r=new java.util.Random();
-    int first=(r.nextInt(6)+1); 
-    int second=first%6+1;
-  %>
+
   <tr>
     <td colspan="2" valign="center">
 	<table width="500" border="0" cellpadding="0" cellspacing="0" class="jiacu"  align="CENTER">
@@ -489,7 +486,7 @@ and share with newbies.
 
 <table align="center" height="90" cellpadding="0" cellspacing="0" background="/image/blog_bottom.gif">
 <tr><td height="17"width="975" class="f_e" align="center" style="font-size:8pt"><a href="/aboutus.html" onClick="launchpopup(this.href, '', 690, 550);return false;">About Us</a> | <a href="/privacy.html" onClick="launchpopup(this.href, 'privacy', 690, 550);return false;">Privacy</a> | <a href="/termsofuse.html" onClick="launchpopup(this.href, 'termsofuse', 690, 550);return false;">Terms Of Use</a> | <a href="/advertise.html" onClick="launchpopup(this.href, 'advertise', 690, 550);return false;">Advertising Special</a> | <a href="/contactus.html" onClick="launchpopup(this.href, 'contactus', 690, 550);return false;">Contact Us</a> | <a href="/help.html" onClick="launchpopup(this.href, 'help', 690, 550);return false;">Help</a> </td></tr>
-<tr><td height="17"width="975" class="f_e" align="center" valign="top"><font size="1">Copyright @ <%=cal.get(java.util.Calendar.YEAR)%> MoHobbies. All Rights Reserved.</font></td>
+<tr><td height="17"width="975" class="f_e" align="center" valign="top"><font size="1">Copyright @ 2024 Mohoby. All Rights Reserved.</font></td>
 </tr></table>
 
 <!-- HIDDEN / POP-UP DIV -->

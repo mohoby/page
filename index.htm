@@ -1,0 +1,1105 @@
+<%@ page language="java" %>
+<%String uid=request.getParameter("uid");%>
+<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
+<%java.util.Calendar cal=java.util.Calendar.getInstance();%> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,maximum-scale=1.0, initial-scale=1.0"/>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<META NAME="DESCRIPTION" content="Share hobbies, common interests, log activities,text to singles anywhere, meet new friends, texting anytime, socializing, mobile dating, mobile chat, mobile socializing, Online free dating, socializing, chat, text messaging, romance, personal ads, love, friendship" />
+<META NAME="KEYWORDS" content="free dating, free dating sites,free dating service, free online dating, socializing, text singles, mobile chat meetings text singles, text sexy singles, text hot singles, text local singles, singles text dating, singles social events, singles social groups, singles socials, singles social networks, relationships, personal ads, singles, woman,man,love,romance for male and female, adult, chat, text messaging, video, friends networking, sharing photos, finding friends, wiki, blog, groups, events, social networking" />
+<META NAME="TYPE" CONTENT="mosouls.com" />
+<META NAME="COPYRIGHT" CONTENT="Copyright <%=cal.get(java.util.Calendar.YEAR)%> mosouls.com" />
+<META NAME="ROBOTS" CONTENT="index,follow" />
+<META NAME="REVISIT-AFTER" CONTENT="7 days" />
+<META NAME="RATING" CONTENT="General" />
+<META NAME="RESOURCE-TYPE" CONTENT="document" />
+<META NAME="DISTRIBUTION" CONTENT="global" />
+<META NAME="ABSTRACT" CONTENT="text to singles anywhere, text singles anytime, free membership, mobile dating, mobile chat, mobile socializing, free profile, free chat, free online date, dating site, online dating, internet dating, adult dating,single dating, love sms,chat room, group chat, meet online, text cool singles, love finder, web personals, sexy singles, personal ads, relationships, dating service, online dating, online chat, match makers, men seeking women, women seeking men, romance, love, dating, looking for love, intimate encounters, couples, matchmaker, matchmaking, singles, meeting men, meeting women, seeking men, seeking women, marriage, single men, single women, cyber chat, and more,love life for online romance, dating, chat rooms, horoscope and matchmaking. For men, women,  singles; find friends, lovers, dates and love.  Personal ads and other services for men seeking women, men seeking men, women seeking women and women seeking men. The online dating community for seeking your personal relationship. Love life for online romance, dating, chat rooms, horoscope and matchmaking.  For men, women,singles; find friends, lovers, dates and fun.  Personal ads and other services for men seeking women, men seeking men, women seeking women and women seeking men. The online dating community for seeking your personal relationships, friendships"/>
+<title>MoSouls.com - Free dating and socializing website</title>
+<!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script-->
+<script src="js/jquery-1.9.1.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js" type="text/javascript"></script>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-size: 12px;
+	line-height:160%;
+	TEXT-ALIGN: center;
+	font-family: "Arial";
+}
+.jiacu{font-weight:bold}
+.baise{color:#FFFFFF;}
+.blue{color:#0267ff;
+TEXT-DECORATION:underline}
+.zi14{font-size:14px}
+a:visited{color:#000000;text-decoration: none;}
+a:hover{text-decoration: none;TEXT-DECORATION:underline}
+a:link {color: #000000;text-decoration: none;}
+
+.png { background:url(/image/group-frame.png) no-repeat; width:330px;height:385px;} /* Moz */ 
+* html .png{background:url(/image/group-frame.gif) no-repeat; width:330px;height:385px;} /* IE6 */ 
+*+html .png {background:url(/image/group-frame.png) no-repeat; width:330px;height:385px;} /* IE7 */ 
+
+.png1 { background:url(/image/meet-frame.png) no-repeat; width:605px;height:397px;} /* Moz */ 
+* html .png1{background:url(/image/meet-frame.gif) no-repeat; width:605px;height:397px;} /* IE6 */ 
+*+html .png1 {background:url(/image/meet-frame.png) no-repeat; width:605px;height:397px;} /* IE7 */
+.cursor {cursor: hand(a pointing hand)} 
+-->
+    /*
+    popup
+    */
+a {
+    color: #cc0066;
+}
+a.btnWithImg,
+a.btnWithImgE,
+a.btnWithImgB,
+a.btnWithImgG {
+    color: rgba(0%,0%,0%,0.0);
+}
+div#popup {
+    display: none;
+    position: absolute;
+    width: 310px;
+    padding: 3px;
+    border: 1px solid #3399cc;
+    box-shadow: 1px 2px 1px #000;
+    background: #77bbff;
+}
+form#close {
+    padding-left: 255px;
+}
+form#search_popup {
+    padding: 0px;
+    vertical-align: middle;
+}
+img#btnSearch,
+img#btnSearchE,
+img#btnSearchB,
+img#btnSearchG {
+    position: relative;
+    top: 5px;
+}
+table.popupTable {
+    margin: 5px auto auto 3px;
+    border: 1px solid #3399cc;
+    caption-side: bottom;
+    background: #eeeeee;
+}
+th {
+    background-color: #3399cc;
+}
+span.photoFrame {
+    float: left;
+    width: 60px;
+    border: 1px solid #3399cc;
+    background-color: rgba(0%,0%,0%,0.0);
+margin-right: 10px
+}
+p.summary {
+    height: auto;
+    margin: 1px;
+width: 295px;
+    font-size: 90%;
+text-align: left;
+padding-left:3px;
+//line-height: 9px;
+}
+label{
+    display: block;
+    vertical-align: middle;
+}
+/*
+    popup event
+*/
+div#popupE,
+div#popupB,
+div#popupG {
+    display: none;
+    position: absolute;
+    width: 310px;
+    padding: 3px;
+    border: 1px solid #3399cc;
+    box-shadow: 1px 2px 1px #000;
+    background: #77bbff;
+}
+form#closeE,
+form#closeB,
+form#closeG {
+    padding-left: 255px;
+}
+form#searchE,
+form#searchB,
+form#searchG {
+	margin-left: 5px;
+    	padding-bottom: 10px;
+}
+span.photoFrameE {
+    float: left;
+    width: 66px;
+    height: 66px;
+    border: 2px solid #666688;
+    background-color: rgba(0%,0%,0%,0.0);
+    margin-right: 2px;
+}
+p.summaryE {
+    margin: 1px;
+    width: 295px;
+}
+p.summaryB,
+p.summaryG {
+	margin: 1px;
+    width: 295px;
+	text-align: left;
+	padding-left: 2px
+}
+p.about {
+    display: none;
+    margin-left: 5px;
+    width: 285px;
+    text-align: left; 
+}
+</style>
+<script type="text/javascript" src="/mobile.js"></script>
+<script language="javascript">
+<!--
+
+<%if (request.getParameter("standard")==null){%>
+	//mobile_device_detect();
+<%}%>
+function launchpopupscroll(url, name, width, height,scroll) {
+winSet = "toolbar=no,location=no,directories=no,menubar=no,scrollbars="+scroll+",resizable=no,status=yes";
+winSet += ",width="+width +",height="+height+",left="+(screen.availWidth-width)/2+",top="+(screen.availHeight-height)/2;
+mypopwnd = window.open(url, name, winSet);
+mypopwnd.focus();
+}
+function launchpopup(url, name, width, height) {
+launchpopupscroll(url, name, width, height,"yes");
+}
+
+function showPhoto(pic) {
+   var imgObj=document.getElementById('slide');
+   var loc = "/image/"+pic;
+   imgObj.src=loc;
+}
+
+function showPic(pic) {
+   var imgObj=document.getElementById('topguy');
+   var loc = "/image/"+pic;
+   imgObj.src=loc;
+}
+
+
+function cursorhand(imgId) {
+   document.getElementById(imgId).style.cursor = "pointer";
+}
+
+
+//-->
+</script>
+</head>
+
+<body topmargin="0">
+<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+
+<%int mon=cal.get(java.util.Calendar.MONTH)+1;%>
+<%int day=cal.get(java.util.Calendar.DAY_OF_MONTH);%>
+<%String bg_01="/image/bg_01.jpg";%>
+<%if ((mon==11 && day>=15) || mon==12 || mon==1 || (mon==2 && day<=15)) bg_01="/image/bg_02.jpg";%>
+<%if (mon==6 || mon==7 || mon==8)  bg_01="/image/bg_03.png";%>
+  <tr>
+    <td background="<%=bg_01%>" height="100">
+	<table width="1000" height="100" border="0" cellpadding="0" cellspacing="0">
+
+  <tr>
+    <td>&nbsp;</td>
+    <td rowspan="2" style="padding-top:35px"><!--img src="/image/txt p.png" width="254" height="40"/--><span style="color:red;font-size:31pt;font-weight:bold;font-family:Comic Sans MS, Arial;">MoHobbies</span>
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="20">&nbsp;</td>
+    <td width="636" class="jiacu" align="center" valign="top" style="padding-bottom:28px;font-size:15px;color:yellow;">
+  <div style="background-color:#bbeeee;font-weight:bold;font-size:11.5pt;float:right">&nbsp;<a href="/register.do"><u>SIGN UP</u> </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  </td></tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class="jiacu baise" style="padding-bottom:5px;padding-right:19px;">
+	<table width="580" border="0">
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" style="color:white">HOME</a></td>
+    <td><a href="/viewevent.do" id="search" style="color:white">SEARCH</div></td>
+
+    <td><a href="/allSearch.do?method=getBlogs" id="blogs" style="color:white"></div></td>
+    <!--td><a href="#" id="groups" style="color:white">GROUPS</div></td-->
+    <td>ACTIVITIES</td>
+    <!--td>WIKIES</td-->
+    <!--td><a href="#" id="popupTrig" style="color:white">EVENTS</a></td-->
+
+    <td>CONNECTIONS</td>
+    <!--td>CHAT</td-->
+    <td><a href="/texting.do" style="color:white">TEXT-MESSAGING</a></td>
+  </tr>
+</table>
+
+	</td>
+  </tr>
+</table>
+
+	</td>
+  </tr>
+</table>
+
+<%String bg="/image/login-bg_02"+((mon<6 || mon>8)?".gif":".jpg");%>
+<table width="1000" border="0" cellpadding="0" cellspacing="0" align="center" style="background:url(<%=bg%>) repeat-x;height:250px;">
+  <tr>
+    <td>
+	<table width="1000" border="0" height="500">
+  <tr>
+    <td valign="top">
+	<table width="970" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="25">&nbsp;</td>
+    <td width="330" valign="top">
+	<table width="330" border="0" >
+  <tr>
+    <td class="png" valign="top">
+	<table width="330" height="375" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="20"></td>
+  </tr>
+  <tr>
+    <td height="100">
+	<table width="290" border="0" align="center" style="background:url(/image/group-bg.jpg) no-repeat;width:240px;height:64px">
+  <tr>
+    <td align="center"><img src="/image/icon1.gif" /></td>
+    <td align="center"><img src="/image/icon2.gif" /></td>
+    <td align="center"><img src="/image/icon.gif" /></td>
+  </tr>
+  <tr class="jiacu" >
+    <td align="center">Gifts </td>
+    <td align="center">Social</td>
+    <td align="center">Texting</td>
+  </tr>
+</table>
+
+	</td>
+  </tr>
+  <tr>
+    <td height="255" valign="top" align="center">
+	<table width="250" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><img src="/image/group-head.jpg" /></td>
+  </tr>
+  <%String userid=request.getParameter("userid");%>
+  <tr>
+    <td background="/image/group-m.jpg">
+	<form name="login" action="/j_security_check" method="post">
+	<table class="jiacu">
+	<tr><td  width="250">
+	<div style="padding:2px 10px 0 30px;float:left">Email</div>
+	<div style="float:left"><input name="j_username" type="text" value="<%=((userid!=null)?userid:"")%>" style="width:135px;margin-top:3px;font-family:Arial;font-size:8pt" size="9" /></div>
+	</td></tr>
+	
+	<tr><td  width="250">
+	<div style="padding:2px 10px 0 30px;float:left">Password</div>
+	<div style="float:left"><input name="j_password" type="password" style="width:110px;margin-top:3px;font-family:Arial;font-size:8pt" size="9" /></div>
+	</td></tr>
+	
+	<tr><td  width="250">
+	<!--div style="padding:0px 10px 0 50px;float:left"><input name="" type="checkbox" /></div-->
+	<!--div style="float:left">Remember Me</div-->
+	</td></tr>
+	
+	<tr><td  width="250" align="center"><input type="submit" value="Login" style="font-weight:bold;font-family:Arial;"/></td></tr>	
+	<tr><td  width="250" align="center" class="blue" style="padding-top:10px"><a href="/getPassword.do"><span class="blue">Forgot Password?<span></a></td></tr>
+	</table>
+	</form> 
+	</td>
+  </tr>
+    <tr>
+    <td><img src="/image/group-b.jpg" /></td>
+  </tr>
+<tr><td width="250" align="middle" style="padding-top:1px"><a href="/register.do">Multi-languages<span style="color:red;weight:bold;"> &nbsp;</span><u><span style="font-weight:bold;color:red;font-size:8pt">JOIN NOW !</span></u></a></td></tr>
+	
+</table>
+
+	</td>
+  </tr>
+</table>
+
+	</td>
+  </tr>
+</table>
+
+<table width="330" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td style="background:url(/image/group-c.jpg) no-repeat;width:329px;height:27px;padding-left:30px" class="jiacu baise" align="left"><font color="#333333">&nbsp;&nbsp;Free events and groups</font></td>
+  </tr>
+  <tr>
+    <td background="/image/group-c-m.jpg" style="background:url(/image/group-c-m.jpg) repeat-y;width:329px;">
+	<table width="300" border="0">
+  <tr>
+    <td style="padding-left:15px"><img src="/image/chat.jpg" /></td>
+    <td align="left">Enjoy your time
+and share with newbies.
+    </td>
+  </tr>
+</table>
+	</td>
+  </tr>
+  <tr>
+    <td></td>
+  </tr>
+</table>
+
+<table width="330" border="0" cellpadding="0" cellspacing="0" style="margin-top:10px">
+  <tr>
+    <td style="background:url(/image/group-c.jpg) no-repeat;width:329px;height:27px;padding-left:30px;" class="jiacu baise" align="left"><font color="#333333">&nbsp;&nbsp;Mark your activity and progress</font></td>
+  </tr>
+  <tr>
+    <td background="/image/group-c-m.jpg" style="background:url(/image/group-c-m.jpg) repeat-y;width:329px;">
+	<table width="300" border="0">
+  <tr>
+    <td style="padding-left:15px"><img src="/image/wiki.jpg" /></td>
+    <td align="left" style="padding-left:10px">Link friends,videos and log your activities, exchange ideas, information, hobbies.
+    </td>
+  </tr>
+</table>
+	</td>
+  </tr>
+  <tr>
+    <td><img src="/image/group-c-b.jpg">&nbsp;</td>
+  </tr>
+  <tr><td><div id="MyLiveChatContainer" style="visibility:hidden"></div>
+  <script type="text/javascript" src="https://mylivechat.com/chatbutton.aspx?hccid=33093806"></script>
+</table>
+
+
+
+	</td>
+    <td width="1"></td>
+    <td valign="top">
+	<table width="605" border="0" align="center" cellpadding="0" cellspacing="0" class="png1">
+  <tr>
+    <td height="5" colspan="2"></td>
+  </tr>
+  <tr>
+    <td width="49" height="35" style="padding-top:5px">&nbsp;</td>
+    <td width="556" class="jiacu zi14" align="left" valign="bottom">Meet and connect players with similar hobbies</td>
+  </tr>
+  <%java.util.Random r=new java.util.Random();
+    int first=(r.nextInt(6)+1); 
+    int second=first%6+1;
+  %>
+  <tr>
+    <td colspan="2" valign="center">
+	<table width="500" border="0" cellpadding="0" cellspacing="0" class="jiacu"  align="CENTER">
+  <tr style="padding-top:4px;width:400"><td><img id="slide" src='<%="/image/pic"+first+".jpg"%>' height="200"/><span style="padding-left:25px;padding-right:25px;color:#555555">&nbsp;&nbsp;</span><img id="topguy" src='<%="/image/pic"+second+".jpg"%>' height="200"/></td></tr>
+  <tr><td style="background:#eeeeee" colspan="2"><table cellspacing="10"><tr>
+    <td align="center" width="80">TOP VOTES</td>
+    <td align="center" width="75"><img id="pic1" src="/image/pic1.jpg" height="55" OnMouseOver='cursorhand("pic1")' onClick='javascript:showPhoto("pic1.jpg");'/></td>
+    <td align="center" width="75"><img id="pic2" src="/image/pic2.jpg" height="55" OnMouseOver='cursorhand("pic2")' onClick='javascript:showPic("pic2.jpg");'/></td>
+    <td align="center" width="75"><img id="pic3" src="/image/pic3.jpg" height="55" OnMouseOver='cursorhand("pic3")' onClick='javascript:showPhoto("pic3.jpg");'/></td>
+    <td align="center" width="75"><img id="pic4" src="/image/pic4.jpg" height="55" OnMouseOver='cursorhand("pic4")' onClick='javascript:showPic("pic4.jpg");'/></td>
+    <td align="center" width="75"><img id="pic5" src="/image/pic5.jpg" height="55" OnMouseOver='cursorhand("pic5")' onClick='javascript:showPhoto("pic5.jpg");'/></td>
+    <td align="center" width="75"><img id="pic6" src="/image/pic6.jpg" height="55" OnMouseOver='cursorhand("pic6")' onClick='javascript:showPic("pic6.jpg");'/></td>
+    <td align="center" width="80">&nbsp;</td>
+  </tr></table></td></tr>
+  
+  <tr><td align="center" colspan="4"><span style="color:#666666;font-size:8pt;">To protect member's privacy, please login to view member profiles&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>
+</table>
+
+	</td>
+  </tr>
+
+</table>
+
+<table width="500" border="0" style="margin-top:8px;margin-left:20px;padding-left:45px" cellpadding="0" cellspacing="0">
+
+  <tr>
+    <td background="/image/text-m.jpg">
+	<table width="500" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td style="background:url(/image/message.jpg) no-repeat;width:250px;height:246px;">
+	<table width="220" height="241" border="0">
+  <tr>
+    <td width="50">&nbsp;</td>
+    <td width="80" valign="top" align="left" style="padding-right:5px;padding-left:10px">
+<br/>
+
+</td>
+  </tr>
+</table>
+
+	</td>
+    <td style="padding-right:10px;"><img src="/image/arrow.jpg" /></td>
+    <td style="background:url(/image/message1.jpg) no-repeat;width:251px;height:246px;">
+	<table width="210" height="241" border="0">
+  <tr>
+    <td width="50">&nbsp;</td>
+    <td width="80" align="left" valign="top" style="padding-right:5px;padding-left:8px">
+<br/>
+</td>
+  </tr>
+</table>
+	</td>
+  </tr>
+   
+</table>
+
+<table>
+<tr><td valign="top">
+	<script type="text/javascript"><!--
+	google_ad_client = "ca-pub-8144048018656583";
+	/* first ad */
+	google_ad_slot = "2759126155";
+	google_ad_width = 468;
+	google_ad_height = 60;
+	//-->
+	</script>
+	<script type="text/javascript"
+	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+
+
+   </td></tr>
+</table>
+	</td>
+  </tr>
+
+</table>
+
+
+	</td>
+  </tr>
+
+</table>
+
+</td>
+  </tr>
+</table>
+
+
+
+	</td>
+  </tr>
+</table>
+
+	</td>
+  </tr>
+</table>
+
+<table align="center" height="90" cellpadding="0" cellspacing="0" background="/image/blog_bottom.gif">
+<tr><td height="17"width="975" class="f_e" align="center" style="font-size:8pt"><a href="/aboutus.html" onClick="launchpopup(this.href, '', 690, 550);return false;">About Us</a> | <a href="/privacy.html" onClick="launchpopup(this.href, 'privacy', 690, 550);return false;">Privacy</a> | <a href="/termsofuse.html" onClick="launchpopup(this.href, 'termsofuse', 690, 550);return false;">Terms Of Use</a> | <a href="/advertise.html" onClick="launchpopup(this.href, 'advertise', 690, 550);return false;">Advertising Special</a> | <a href="/contactus.html" onClick="launchpopup(this.href, 'contactus', 690, 550);return false;">Contact Us</a> | <a href="/help.html" onClick="launchpopup(this.href, 'help', 690, 550);return false;">Help</a> </td></tr>
+<tr><td height="17"width="975" class="f_e" align="center" valign="top"><font size="1">Copyright @ <%=cal.get(java.util.Calendar.YEAR)%> MoHobbies. All Rights Reserved.</font></td>
+</tr></table>
+
+<!-- HIDDEN / POP-UP DIV -->
+<div id="popup">
+    <form id="close">
+        <a href="#" class="btnWithImg" id="btnClose">
+            <img src="/image/close_normal.png">
+        </a>
+    </form>
+    <form id="search_popup">
+            <input type="text" id="searchBox">
+            <select id="gender">
+                <option value="">all</option>
+                <option value="female">female</option>
+                <option value="male">male</option>
+            </select>
+            <a href="#" class="btnWithImg" id="submitSearch">
+                <img src="/image/search_normal.png" id="btnSearch">
+            </a>
+    </form>
+    <table class="popupTable" summary="use to display photos, summary, and status">
+        <tr>
+            <th colspan="3" class="center"> </th>
+        </tr>
+        <tr><!-- row1-->
+            <td>
+                    <span class="photoFrame">
+                        <img src="" alt="" id="img0">
+                    </span>
+                <p class="summary" id="sum0">
+                    <b></b><br>
+                </p>
+            </td>
+        </tr>
+        <tr><!-- row2 -->
+            <td>
+                    <span class="photoFrame">
+                        <img src="" alt="" id="img1">
+                    </span>
+                <p class="summary" id="sum1">
+                    <b></b><br>
+                </p>
+            </td>
+        </tr>
+		<tr><!-- row3 -->
+            <td>
+                    <span class="photoFrame">
+                        <img src="" alt="" id="img2">
+                    </span>
+                <p class="summary" id="sum2">
+                    <b></b><br>
+                </p>
+            </td>
+        </tr>
+		<tr><!-- row4 -->
+            <td>
+                    <span class="photoFrame">
+                        <img src="" alt="" id="img4">
+                    </span>
+                <p class="summary" id="sum4">
+                    <b></b><br>
+                </p>
+            </td>
+        </tr>
+		<tr><!-- row5 -->
+            <td>
+                    <span class="photoFrame">
+                        <img src="" alt="" id="img5">
+                    </span>
+                <p class="summary" id="sum5">
+                    <b></b><br>
+                </p>
+            </td>
+        </tr>
+        <caption>
+            <b>More >></b>
+        </caption>
+    </table>
+</div>
+<div id="popupE">
+        <form id="closeE">
+            <a href="#" class="btnWithImgE" id="btnCloseE">
+                <img src="image/close_normal.png">
+            </a>
+        </form>
+        <form id="searchE">
+            <label>
+            <input type="text" id="searchBoxE">
+            <a href="#" class="btnWithImgE" id="submitSearchE">
+                <img src="image/search_normal.png" id="btnSearch">
+            </a>
+            </label>
+        </form>
+        <!--
+        <h2>Pop-up should be displayed</h2>
+        <p>
+            This div only appears when the trigger link is <b>CLICKED</b>.
+            Otherwise it is hidden from view.
+        </p>
+         -->
+        <table summary="for Event button" class="popupTable">
+            <tr>
+                <th colspan="3" class="centerE">Title</th>
+            </tr>
+            <tr><!-- row1-->
+                <td>
+                    <span class="photoFrameE">
+                        <img src="" alt="" id="imgE0">
+                    </span>
+                    <p class="summaryE" id="sumE0"></p>
+                    <P class="summaryE" id="morE0">
+                        ...
+                    </P>
+                    <p class="about" id="aboutE0"></p>
+                </td>
+            </tr>
+            <tr><!-- row2-->
+                <td>
+                    <span class="photoFrameE">
+                        <img src="" alt="" id="imgE1">
+                    </span>
+                    <p class="summaryE" id="sumE1"></p>
+                    <P class="summaryE" id="morE1">
+                        ...
+                    </P>
+                    <p class="about" id="aboutE1"></p>
+                </td>
+            </tr>
+            <tr><!-- row3-->
+                <td>
+                    <span class="photoFrameE">
+    <img src="" alt="" id="imgE2">
+                    </span>
+                    <p class="summaryE" id="sumE2"></p>
+                    <P class="summaryE" id="morE2">
+                        ...
+                    </P>
+                    <p class="about" id="aboutE2"></p>
+                </td>
+            </tr>
+            <tr><!-- row4-->
+                <td>
+                    <span class="photoFrameE">
+    <img src="" alt="" id="imgE3">
+                    </span>
+                    <p class="summaryE" id="sumE3"></p>
+                    <P class="summaryE" id="morE3">
+                        ...
+                    </P>
+                    <p class="about" id="aboutE3"></p>
+                </td>
+            </tr>
+            <caption>
+                <b>more >></b>
+            </caption>
+        </table>
+    </div>
+	<div id="popupB">
+        <form id="closeB">
+            <a href="#" class="btnWithImgB" id="btnCloseB">
+                <img src="image/close_normal.png">
+            </a>
+        </form>
+        <form id="searchB">
+            <label>
+            <input type="text" id="searchBoxB">
+            <a href="#" class="btnWithImgB" id="submitSearchB">
+                <img src="image/search_normal.png" id="btnSearchB">
+            </a>
+            </label>
+        </form>
+        <!--
+        <h2>Pop-up should be displayed</h2>
+        <p>
+            This div only appears when the trigger link is <b>CLICKED</b>.
+            Otherwise it is hidden from view.
+        </p>
+         -->
+        <table summary="for Blogs button" class="popupTable">
+            <tr>
+                <th colspan="3" class="centerE">Title</th>
+            </tr>
+            <tr><!-- row1-->
+                <td>
+                    <span class="photoFrameE">
+                        <img src="" alt="" id="imgB0">
+                    </span>
+                    <p class="summaryB" id="sumB0"></p>
+                </td>
+            </tr>
+            <tr><!-- row2-->
+                <td>
+                    <span class="photoFrameE">
+                        <img src="" alt="" id="imgB1">
+                    </span>
+                    <p class="summaryB" id="sumB1"></p>
+                </td>
+            </tr>
+            <tr><!-- row3-->
+                <td>
+                    <span class="photoFrameE">
+    <img src="" alt="" id="imgB2">
+                    </span>
+                    <p class="summaryB" id="sumB2"></p>
+                </td>
+            </tr>
+            <tr><!-- row4-->
+                <td>
+                    <span class="photoFrameE">
+    <img src="" alt="" id="imgB3">
+                    </span>
+                    <p class="summaryB" id="sumB3"></p>
+                </td>
+            </tr>
+            <caption>
+                <b>more >></b>
+            </caption>
+        </table>
+    </div>
+	<div id="popupG">
+        <form id="closeG">
+            <a href="#" class="btnWithImgG" id="btnCloseG">
+                <img src="image/close_normal.png">
+            </a>
+        </form>
+        <form id="searchG">
+            <label>
+            <input type="text" id="searchBoxG">
+            <a href="#" class="btnWithImgG" id="submitSearchG">
+                <img src="image/search_normal.png" id="btnSearchG">
+            </a>
+            </label>
+        </form>
+        <!--
+        <h2>Pop-up should be displayed</h2>
+        <p>
+            This div only appears when the trigger link is <b>CLICKED</b>.
+            Otherwise it is hidden from view.
+        </p>
+         -->
+        <table summary="for Blogs button" class="popupTable">
+            <tr>
+                <th colspan="3" class="centerE">Title</th>
+            </tr>
+            <tr><!-- row1-->
+                <td>
+                    <span class="photoFrameE">
+                        <img src="" alt="" id="imgG0">
+                    </span>
+                    <p class="summaryG" id="sumG0"></p>
+                </td>
+            </tr>
+            <tr><!-- row2-->
+                <td>
+                    <span class="photoFrameE">
+                        <img src="" alt="" id="imgG1">
+                    </span>
+                    <p class="summaryG" id="sumG1"></p>
+                </td>
+            </tr>
+            <tr><!-- row3-->
+                <td>
+                    <span class="photoFrameE">
+    <img src="" alt="" id="imgG2">
+                    </span>
+                    <p class="summaryG" id="sumG2"></p>
+                </td>
+            </tr>
+            <tr><!-- row4-->
+                <td>
+                    <span class="photoFrameE">
+    <img src="" alt="" id="imgG3">
+                    </span>
+                    <p class="summaryG" id="sumG3"></p>
+                </td>
+            </tr>
+            <caption>
+                <b>more >></b>
+            </caption>
+        </table>
+    </div>
+<script type="text/javascript">
+    /*
+     * pop-up
+     * */
+    var popupDiv;
+
+    $(function()
+    {
+        popupDiv = $('div#popup');
+
+        var offsetX = -(popupDiv.width()/2);    //center the popup around mouse pointer
+        var offsetY = -10;
+
+        //show pop-up on click
+        $('a#searchS').click(function(e){
+            popupDiv.show()
+                    .css('top', e.pageY+offsetY)
+                    .css('left', e.pageX+offsetX)
+                    .appendTo('body')
+            ;
+        })
+
+        $('a#btnClose').click(function(){
+            popupDiv.hide();
+        })
+    })
+
+    var popupDivE;
+
+    $(function()
+    {
+        popupDivE = $('div#popupE');
+
+        var offsetX = -popupDivE.width();    //-(popupDivE.width()/2)
+        var offsetY = -10;
+
+        //show pop-up on click
+        $('a#popupTrig').click(function(e){
+            popupDivE.show()
+                    .css('top', e.pageY+offsetY)
+                    .css('left', e.pageX+offsetX)
+                    .appendTo('body')
+            ;
+        })
+
+        $('a#btnCloseE').click(function(){
+            popupDivE.hide();
+        })
+
+    //event handler for moreE >>
+    $("#morE0, #morE1, #morE2, #morE3").click(function(event){
+        $(this).slideUp();
+        var aboutStr = '#aboutE' + $(this).attr("id").substring(4,5);
+        console.log(aboutStr);
+        $(aboutStr).slideDown();
+    })
+
+    })
+	
+	var popupDivB;
+
+    $(function()
+    {
+        popupDivB = $('div#popupB');
+
+        var offsetX = -popupDivE.width();
+        var offsetY = -10;
+
+        //show pop-up on click
+        $('a#blogs').click(function(e){
+            popupDivB.show()
+                    .css('top', e.pageY+offsetY)
+                    .css('left', e.pageX+offsetX)
+                    .appendTo('body')
+            ;
+        })
+
+        $('a#btnCloseB').click(function(){
+            popupDivB.hide();
+        })
+
+    })
+	
+	var popupDivG;
+
+    $(function()
+    {
+        popupDivG = $('div#popupG');
+
+        var offsetX = -popupDivG.width();    //-(popupDivE.width()/2)
+        var offsetY = -10;
+
+        //show pop-up on click
+        $('a#groups').click(function(e){
+            popupDivG.show()
+                    .css('top', e.pageY+offsetY)
+                    .css('left', e.pageX+offsetX)
+                    .appendTo('body');
+        })
+
+        $('a#btnCloseG').click(function(){
+            popupDivG.hide();
+        })
+
+    })
+    /*
+     * json for search
+     * */
+$(function() {
+   $('a#submitSearch').click(function() {
+if( $('input#searchBox').val().trim() == "" )
+    //alert("Please enter a name or title.");
+    return;
+
+    var selectArray = $('input#searchBox').val().split(',');
+
+    if(selectArray[0] == "")
+        return; //nothing to do if no input
+    if(selectArray[1] == null)
+        selectArray[1] = "";
+
+    var gender = $('select#gender').val();
+
+    var urlStr = "/keywordSearch.do?keywords="+selectArray[0]+
+    "&location=" + selectArray[1] +
+    "&gender=" + gender;
+         $.ajax({
+             type: "GET",
+             url: urlStr,
+             dataType: 'json',           
+             success: function(data) {
+                //search returned no result
+                if(data.length <1){
+                    console.log('no result');
+$('th.center').text('Sorry, no result.');
+                    return;
+                }
+                console.log('data received. Sample data id: ' + data[0].id);
+                //maximum of 5 data for now
+             	var dataLength = Math.min(data.length, 5);
+		//display 5 at a time, then roll to next 5 with more >>
+                for(var i=0;i < dataLength;i++)
+                {
+$('th.center').text('People you may know.');
+                    var targetSumId = "p#sum"+i;
+                    var newSummary = "<p class='summary' id='sum" + i + "'>" +
+                                    data[i].name + "<br/>"
+                                    + ((data[i].age)?data[i].age:"") + " "+((isNaN(data[i].zodiacsign))?"":data[i].zodiacsign) +  " "                                          
+				    + ((data[i].location!=null)?data[i].location:"") + "<br/>";
+			var sum = data[i].summary;
+			/*if (edu != null) {
+				//if (edu.length> 30)
+				    newSummary += edu;
+			}
+			var occup = data[i].occupation;
+			if (occup != null) {
+				//if (occup.length>30)
+				    newSummary += occup;
+			}*/
+                        newSummary += sum + "</p>";
+                    $(targetSumId).replaceWith(newSummary);
+
+                    var targetImgId = "img#img" + i;
+                    var picLoc = data[i].pictureLocation;
+                    console.log("pic:"+data[i].pictureFileN);
+                    $(targetImgId).attr({src:picLoc,
+                        width:60
+                    }
+    		);
+                }
+             },
+             error:function(data){
+                 alert("unable to process request");
+             }
+         });
+   });
+});
+/*event json*/
+$(function() {
+   $('a#submitSearchE').click(function() {   
+         $.ajax({
+             type: "GET",
+             url: "/allSearch.do?method=getEvents",
+             dataType: 'json',           
+             success: function(data) {
+                console.log('data received. Sample data id: ' + data[0].id);
+		//maximum of 4 data for now
+             	var dataLength = Math.min(data.length, 4);
+		
+                for(var i=0;i < dataLength;i++) {
+                    var targetSumId = "p#sumE"+i;
+                    //basic info
+                    var newSummary =
+                    data[i].tagline + "<br>"
+					+ data[i].location + "<br>";
+
+		        if(data[i].time.substring(11,15) == "null")
+			        data[i].time = data[i].time.substring(0,10);
+			
+			        newSummary += data[i].time + "<br>";
+                    //more info
+                    /*newSummary += "<a href='#' id='morE" + i + "'>"
+                                + "more >></a>" + "<br/>";
+                    var aboutIDStr = 'about' + i;
+                    newSummary += "<div id='" + aboutIDStr + "'>"
+                                + data[i].about + "</div>" + "<br/>";
+                    newSummary += "</p>";*/
+                    $(targetSumId).html(newSummary);
+    		    $("#morE"+i).html("<span style='color:red;text-align:center;'>more >></span>");
+
+    		    $("#aboutE"+i).text(data[i].about);
+    		    $("#aboutE"+i).hide();
+
+                    var targetImgId = "img#imgE" + i;
+                    var picLoc = data[i].pictureLocation;
+                    $(targetImgId).attr({src:picLoc,
+                        width:66
+                    }
+    		);
+                }
+             },
+             error:function(data) {
+                 alert("unable to process the request!");
+             }
+         });
+   });
+});
+/*blogs json*/
+$(function() {
+   $('a#submitSearchB').click(function() {
+    
+         $.ajax({
+             type: "GET",
+             url: "/allSearch.do?method=getBlogs",
+             dataType: 'json',           
+             success: function(data) {
+		//maximum of 4 data for now
+             	var dataLength = Math.min(data.length, 4);
+		
+                for(var i=0;i < dataLength;i++) {
+                    var targetSumId = "p#sumB"+i;
+                    //basic info
+                    var newSummary = "<b>" + data[i].name + "</b>"
+					+ " by " + data[i].nickname + "<br>"
+					+data[i].about;
+
+                    $(targetSumId).html(newSummary);
+
+                    var targetImgId = "img#imgB" + i;
+                    var picLoc = data[i].pictureLocation;
+                    $(targetImgId).attr({src:picLoc,
+                        width:66
+                    }
+    		);
+                }
+             },
+             error:function(data) {
+                 alert("unable to process the request!");
+             }
+         });
+   });
+});
+/*groups json*/
+$(function() {
+   $('a#submitSearchG').click(function() {    
+         $.ajax({
+             type: "GET",
+             url: "/allSearch.do?method=getGroups",
+             dataType: 'json',           
+             success: function(data) {
+				console.log('data received. Sample data id: ' + data[0].id);
+		//maximum of 4 data for now
+             	var dataLength = Math.min(data.length, 4);
+		
+                for(var i=0;i < dataLength;i++) {
+                    var targetSumId = "p#sumG"+i;
+                    //basic info
+                    var newSummary = "<b>" + data[i].tagline + "</b>"+ " started by "
+					+ data[i].leader + "<br>"
+					+ data[i].about;
+
+                    $(targetSumId).html(newSummary);
+
+                    var targetImgId = "img#imgG" + i;
+                    var picLoc = data[i].pictureLocation;
+                    $(targetImgId).attr({src:picLoc,
+                        width:66
+                    }
+    		);
+                }
+             },
+             error:function(data) {
+                 alert("unable to process the request!");
+             }
+         });
+   });
+});
+
+<script>
+  // Simple pseudo-random user id - 27 possible values
+  var customUserId = <%=uid%>
+  //alert(customUserId);
+  // Standard Google Universal Analytics code
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-39016915-2', {'userId': customUserId});   // If "User ID" feature is available
+  ga('require', 'displayfeatures');
+  ga('set', 'dimension1', customUserId);                   // Set a `customUserId` dimension at page level
+  ga('send', 'pageview');
+
+</script>
+</script>
+</body>
+</html>

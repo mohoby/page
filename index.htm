@@ -29,6 +29,7 @@ body {
 	line-height:160%;
 	TEXT-ALIGN: center;
 	font-family: "Arial";
+	background:linear-gradient(to Bottom, grey, black);
 }
 .jiacu{font-weight:bold}
 .baise{color:#FFFFFF;}
@@ -268,9 +269,9 @@ function cursorhand(imgId) {
   <tr>
     <td colspan="2" valign="center">
 	<table width="450" border="0" cellpadding="0" cellspacing="0" class="jiacu"  align="CENTER">
-  <tr style="padding-top:4px;width:250"><td><img id="slide" src='<%="/pages/image/pic"+first+".jpg"%>' height="150"/>
-	&nbsp;</span><img id="topguy" src='<%="/pages/image/pic"+second+".jpg"%>' height="150"/></td>&nbsp;<td><img id="topguy" src='<%="/pages/image/pic"+second+".jpg"%>' height="150"/></td>&nbsp;<td><img id="topguy" src='<%="/pages/image/pic"+second+".jpg"%>' height="150"/></td></tr>
-  <tr><td style="background:#eeeeee;padding-left:50px;" colspan="2"><table cellspacing="10"><tr>
+  <tr style="padding-top:4px;width:250;float:left;"><td><img id="slide" src='<%="/pages/image/pic"+first+".jpg"%>' height="150"/>
+	<img id="topguy" src='<%="/pages/image/pic"+second+".jpg"%>' height="150"/></td><td><img id="topguy" src='<%="/pages/image/pic"+second+".jpg"%>' height="150"/></td>&nbsp;<td><img id="topguy" src='<%="/pages/image/pic"+second+".jpg"%>' height="150"/></td></tr>
+  <tr><td style="background:#eeeeee;padding-left:50px;" colspan="2"><table cellspacing="10"><tr style="padding-left:50px;">
     <td align="center" width="80">TOP GAMES</td>
     <td align="center" width="95"><img id="pic1" src="/pages/image/pic1.jpg" height="59" OnMouseOver='cursorhand("pic1")' onClick='javascript:showPhoto("pic1.jpg");'/></td>
     <td align="center" width="95"><img id="pic2" src="/pages/image/pic2.jpg" height="59" OnMouseOver='cursorhand("pic2")' onClick='javascript:showPic("pic2.jpg");'/></td>

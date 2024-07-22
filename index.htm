@@ -29,8 +29,8 @@ body {
 	line-height:160%;
 	TEXT-ALIGN: center;
 	font-family: "Arial";	
-	background: radial-gradient( 400% 100% at bottom, /* adjust the 400% to control the curve */
-         #0e1a34, #5e7481, #a0947a, #c17a5c, #ada7cb, #d7e8fd, #d7edf0);
+	background: linear-gradient( 400% 100% at bottom, /* adjust the 400% to control the curve */
+         #5e7481, #a0947a, #c17a5c, #ada7cb, #d7e8fd);
 }
 .jiacu{font-weight:bold}
 .baise{color:#FFFFFF;}
@@ -44,13 +44,7 @@ a:link {color: #000000;text-decoration: none;}
     -webkit-animation:spin 4s linear infinite;
     -moz-animation:spin 4s linear infinite;
     animation:spin 4s linear infinite;
-}
-background: radial-gradient(400% 100% at bottom, /* adjust the 400% to control the curve */
-      #0e1a34, #5e7481, #a0947a, #c17a5c, #ada7cb, #d7e8fd, #d7edf0);
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-	
+}	
 .png { background:url(/pages/image/group-frame.png) no-repeat; width:330px;height:385px;} /* Moz */ 
 * html .png{background:url(/pages/image/group-frame.png) no-repeat; width:330px;height:385px;} /* IE6 */ 
 *+html .png {background:url(/pages/image/group-frame.png) no-repeat; width:330px;height:385px;} /* IE7 */ 

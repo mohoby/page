@@ -39,7 +39,15 @@ TEXT-DECORATION:underline}
 a:visited{color:#000000;text-decoration: none;}
 a:hover{text-decoration: none;TEXT-DECORATION:underline}
 a:link {color: #000000;text-decoration: none;}
-
+.image {
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+	
 .png { background:url(/pages/image/group-frame.png) no-repeat; width:330px;height:385px;} /* Moz */ 
 * html .png{background:url(/pages/image/group-frame.png) no-repeat; width:330px;height:385px;} /* IE6 */ 
 *+html .png {background:url(/pages/image/group-frame.png) no-repeat; width:330px;height:385px;} /* IE7 */ 
@@ -208,7 +216,7 @@ function cursorhand(imgId) {
 
   <tr>
     <td>&nbsp;</td>
-    <td rowspan="2" style="padding-top:35px"><img src="/pages/image/logo0.png" width="105" height="80"/><span style="color:red;font-size:31pt;font-weight:bold;font-family:Comic Sans MS, Arial;">Mohoby</span>
+    <td rowspan="2" style="padding-top:35px"><img src="/pages/image/logo0.png" class="image" width="105" height="80"/><span style="color:red;font-size:31pt;font-weight:bold;font-family:Comic Sans MS, Arial;">Mohoby</span>
     </td>
     <td>&nbsp;</td>
   </tr>
@@ -285,7 +293,7 @@ function cursorhand(imgId) {
     <td align="center" width="80">&nbsp;</td>
   </tr></table></td></tr>
   
-  <tr><td align="center" colspan="4"><span style="color:#666666;font-size:8pt;">To protect member's identity, please login to view games&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>
+  <tr><td align="center" colspan="4"><span style="color:#666666;font-size:8pt;">To protect Gamesmanship, please login to view games&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>
 </table>
 
 	</td>

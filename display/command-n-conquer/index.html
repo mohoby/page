@@ -12,7 +12,7 @@
 
 		<style type="text/css">
 			body {
-				background:black;
+				background:#efefef;
 				color:white;
 				text-align:center;	
 				font-family: Arial, Helvetica, sans-serif;
@@ -56,9 +56,9 @@
 			
 			#rightcontent {
 				float:left;
-				width:100%;
-				padding:10px;
-				text-align:center;	
+				width:640px;
+				padding-left:150px;
+				text-align:middle;	
 			}
 			
 			#rightmostcontent {
@@ -97,19 +97,67 @@
 	  })();
 	</script>
 
+	
+			
 			<div id="rightcontent">
 			<canvas id="canvas" width="640" height="535">
 				Your browser does not support the HTML5 Canvas feature. This game uses new HTML5 features and will only work on the latest versions of Firefox, Safari or Chrome (and maybe Internet Explorer 9).			
 			</canvas>
 		
-			
+			<div id='specialcontrols'>
+				<label for="debug_mode">Debug Mode: </label><input type="checkbox" name="debug_mode" id="debug_mode">
+			</div>
 			<div id = "featuresdiv">
-			
-				<p style="font-size:smaller;">
-				
-				</p>
-				<p style="font-size:smaller;margin-top:10px;">
+					<br>
+				<p style="font-size:smaller;color:red;font-size:20pt;font-weight:bold;">Command and Conquer
 					<ul style="font-size:smaller;">
+						<li>v0.3d Released
+							<ul>
+							<li>Harvester saved when refinery is sold</li>	
+							<li>Ctrl + 0-9 can be used to set unit control groups</li>
+							<li>No building on fog of war or half outside screen</li>
+							<li>Canceling returns money</li>
+							<li>Can start building with insufficient funds. Waits when out of money</li>
+							
+							</ul>
+						</li>	
+						<br>
+						<li>v0.3c Released - Performance patch
+							<ul>
+							<li>Harvesters collect 700 per trip</li>	
+							<li>Using sprite sheets for faster loading and processing.</li>
+							</ul>
+						</li>	
+						<br>
+					
+						<li>v0.3b Released - Bugfixes - Thank you for all your feedback!!
+							<ul>
+							<li>Tanks can turn in place</li>	
+							<li>Tooltip shows unit/building cost</li>
+							<li>Harvester life does not regenerate inside refinery</li>
+							<li>Can pan to the right edge of the map even with sidebar visible</li>
+							</ul>
+						</li>	
+						<br>
+						<li>v0.3 Released
+							<ul>
+							<li>Can repair or sell buildings</li>	
+							<li>Refinery and Harvesters to process tiberium (cash)</li>
+							<li>Lots of bug fixes and Speed/Performance optimization</li>
+							</ul>
+						</li>	
+						<br>
+						<li>v0.2 Released
+							<ul>
+							<li>Improved pathfinding</li>
+							</ul>
+						</li>
+						<br>
+						<li>v0.1 Released</li>
+					</ul>
+				</p>
+				<p style="font-size:smaller;margin-top:10px;color:gray;text-align:center;">Controls:
+					<ul style="font-size:smaller;color:black;text-align:left;">
 						<li>Unit Selection 
 							<ul>
 							<li>Single Unit - Click on a unit to select it</li>	
@@ -134,10 +182,11 @@
 					</ul>
 				</p>
 				
+		
 			</div>
 	
 		</div>
-	
+		
 		
 	</body>
 </html>
